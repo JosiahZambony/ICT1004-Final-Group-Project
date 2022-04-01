@@ -38,7 +38,8 @@ hr.footer-hr {
 
 /* Landing Page Design */
 img.pikachu-img {
-    max-width: 500px;
+    max-width: 70%;
+    min-width: 300px;
     width: auto;
     height: auto;
     position: absolute;

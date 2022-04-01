@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="/index.php">
-        <img src="/images/pokeball.svg" width="30" height="30" class="d-inline-block align-top" alt="pokeball icon"/>
+    <a class="navbar-brand" href="index.php">
+        <img src="images/pokeball.svg" width="30" height="30" class="d-inline-block align-top" alt="pokeball icon"/>
         <span class="px-1">PokeTrade.Co</span>
     </a>
     
@@ -22,7 +22,7 @@
             </li>
             <li class="nav-item px-3">
                 <a class="nav-link" href="login.php">
-                    <img src="/images/box-arrow-right.svg" width="25" height="25" class="d-inline-block align-top" alt="box-arrow-right icon"/>
+                    <img src="images/box-arrow-right.svg" width="25" height="25" class="d-inline-block align-top" alt="box-arrow-right icon"/>
                     <span class="px-1">Login</span>
                 </a>
             </li>

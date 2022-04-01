@@ -3,7 +3,7 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="author" content="De Jun">
         <meta name="author" content="Kar Hoe">
@@ -44,13 +44,13 @@
             </div>
         </section>
         <section class="row-md">
-            <form class="container p-3">
+            <form class="container p-3" action="process_register.php" method="post">
                 <div class="form-row pb-3">
                     <div class="col-md-1">
                         <label for="user_input" class="col-form-label">Username:</label>
                     </div>
                     <div class="col-md-11">
-                        <input type="text" class="form-control" id="user_input" placeholder="Enter Username" maxlength="45" required>
+                        <input type="text" class="form-control" id="user_input" name="user_input" placeholder="Enter Username" maxlength="45">
                     </div>
                 </div>
                 <div class="form-row pb-3">
@@ -58,21 +58,21 @@
                         <label for="email_input" class="col-form-label">Email:</label>
                     </div>
                     <div class="col-md-11">
-                        <input type="email" class="form-control" id="email_input" placeholder="Enter Email" required>
+                        <input type="email" class="form-control" id="email_input" name="email_input" placeholder="Enter Email">
                     </div>
                 </div>
                 <div class="form-row pb-3">
                     <div class="col-md-1">
                         <label for="pwd_input" class="col-form-label">Password:</label>
                     </div>
-                    <div class="col-md">
-                        <input type="password" class="form-control" id="pwd_input" placeholder="Enter Password" required>
+                    <div class="col-md pb-3">
+                        <input type="password" class="form-control" id="pwd_input" name="pwd_input" placeholder="Enter Password">
                     </div>
                     <div class="col-md-1.5">
                         <label for="pwd_confirm" class="col-form-label">Confirm Password:</label>
                     </div>
-                    <div class="col-md">
-                        <input type="password" class="form-control" id="pwd_confirm" placeholder="Confirm Password" required>
+                    <div class="col-md pb-3">
+                        <input type="password" class="form-control" id="pwd_confirm" name="pwd_confirm" placeholder="Confirm Password">
                     </div>
                 </div>
                 <div class="form-row pb-3 pl-1">

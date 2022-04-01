@@ -3,7 +3,7 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="author" content="De Jun">
         <meta name="author" content="Kar Hoe">
@@ -37,11 +37,11 @@
         ?>
         <section class="row white-bg-img">
             <div class="col-md p-3">
-                <img class="pikachu-img" src="images/pikachu.png" alt="Pikachu Picture">
+                <img class="pikachu-img img" src="images/pikachu.png" alt="Pikachu Picture">
             </div>
-            <div class="message-box col-md m-5 p-3 align-self-center">
+            <div class="message-box col-md ml-5 mr-5 p-3 align-self-center">
                 <article class="container py-auto">
-                    <h1 class="display-4">Welcome to PokeTrade!</h1>
+                    <h1>Welcome to PokeTrade!</h1>
                     <p class="lead">Need to find a card?</p>
                     <button type="button" class="btn btn-outline-dark mb-3">Click here to start</button>
                 </article>
