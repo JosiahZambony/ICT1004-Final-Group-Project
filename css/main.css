@@ -1,0 +1,67 @@
+/* General Settings */
+body {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+/* Footer Design */
+a.footer-nav:link {
+    color: black;
+}
+
+a.footer-nav:visited {
+    color: black;
+}
+
+a.footer-nav:hover {
+    text-decoration: none;
+    color: grey;
+}
+
+a.footer-nav:active {
+    color: black;
+}
+
+li.footer-li {
+    border: none;
+}
+
+li.footer-title {
+    border-color: black;
+}
+
+hr.footer-hr {
+    width: 50%;
+    background-color: black;
+}
+
+/* Landing Page Design */
+img.pikachu-img {
+    max-width: 500px;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.white-bg-img {
+    background-image: url(../images/white-background.jpg);
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-height: auto;
+    width: 100%;
+    margin: 0px;
+}
+
+/* Landing Page Design */
+div.message-box {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px 0px black;
+}
