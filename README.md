@@ -7,8 +7,12 @@ I have created a skeleton layout of the project.
 - Added Landing Page
 - Added Navigation Bar
 - Added Footer
+- Added Login Page
+- Added Register Page
 
 Goal for next change:
-- Add Login Page
-- Add Card Page
+- Add Card List Page
+- Add Cart Page
+- Add more information to landing page
+- Display Username at Nav Bar
 - Finish Social Media Links at Footer
