@@ -7,7 +7,7 @@ I have created a skeleton layout of the project.
 - Added Landing Page
 - Added Navigation Bar
 - Added Footer
-- Added Login Page
+- Added Login Page that sends member data to database
 - Added Register Page
 
 Goal for next change:
