@@ -15,7 +15,7 @@
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item px-3">
-                <a class="nav-link" href="#">Card List</a>
+                <a class="nav-link" href="card_list.php">Card List</a>
             </li>
             <li class="nav-item px-3">
                 <a class="nav-link" href="#">About Us</a>
