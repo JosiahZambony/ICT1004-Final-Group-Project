@@ -41,10 +41,10 @@
                 $error_msg = "";
                 $hashed_pwd = "";
 
-                $username = filter_input(INPUT_POST, "user_input");
-                $email = filter_input(INPUT_POST, "email_input");
-                $pwd = filter_input(INPUT_POST, "pwd_input");
-                $pwd_confirm = filter_input(INPUT_POST, "pwd_confirm");
+                $username = $_POST["user_input"];
+                $email = $_POST["email_input"];
+                $pwd = $_POST["pwd_input"];
+                $pwd_confirm = $_POST["pwd_confirm"];
 
                 /* Check if the username entry is empty */
                 if(empty($username)) {

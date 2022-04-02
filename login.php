@@ -44,13 +44,13 @@
             </div>
         </section>
         <section class="row-md">
-            <form class="container p-3">
+            <form class="container p-3" action="process_login.php" method="post">
                 <div class="form-row pb-3">
                     <div class="col-md-1">
                         <label for="user_input" class="col-form-label">Username:</label>
                     </div>
                     <div class="col-md-11">
-                        <input type="text" class="form-control" id="user_input" placeholder="Enter Username" required>
+                        <input type="text" class="form-control" id="user_input" name="user_input" placeholder="Enter Username" required>
                     </div>
                 </div>
                 <div class="form-row pb-3">
@@ -58,7 +58,7 @@
                         <label for="pwd_input" class="col-form-label">Password:</label>
                     </div>
                     <div class="col-md-11">
-                        <input type="password" class="form-control" id="pwd_input" placeholder="Enter Password" required>
+                        <input type="password" class="form-control" id="pwd_input" name="pwd_input" placeholder="Enter Password" required>
                     </div>
                 </div>
                 <div class="form-row pb-3 pl-1">
