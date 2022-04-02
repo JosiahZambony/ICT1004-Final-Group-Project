@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -58,8 +61,9 @@
                 }
                 
                 if($success) {
+                    $_SESSION["name"] = $username;
                     echo "<form class='container p-3' action='index.php'>"
-                       . "<h1 class='display-4'>Welcome back, " . $username. "</h1>"
+                       . "<h1 class='display-4'>Welcome back, " . $_SESSION["name"] . "</h1>"
                        . "<button class='btn btn-outline-dark' type='submit'>Home</button>"
                        . "</form>";
                 }
@@ -85,7 +89,7 @@
 
                     /* Check connection */
                     if($conn->connect_error) {
-                        $error_msg = "Connection failed: " . $conn->connect_error;
+                        $error_msg .= "Connection issue is found";
                         $success = false;
                     }
                     else {
@@ -105,13 +109,13 @@
                             {
                                 // Don't be too specific with the error message - hackers don't
                                 // need to know which one they got right or wrong. :)
-                                $error_msg = "<li class='list-group-item'>Username not found or Password doesn't match...</li>";
+                                $error_msg .= "<li class='list-group-item'>Username not found or Password doesn't match...</li>";
                                 $success = false;
                             }
                         }
                         else
                         {
-                            $error_msg = "<li class='list-group-item'>Username not found or password doesn't match...</li>";
+                            $error_msg .= "<li class='list-group-item'>Username not found or password doesn't match...</li>";
                             $success = false;
                         }
                         $stmt->close();

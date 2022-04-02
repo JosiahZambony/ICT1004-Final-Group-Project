@@ -123,7 +123,7 @@
 
                     /* Check connection */
                     if($conn->connect_error) {
-                        $error_msg = "Connection failed: " . $conn->connect_error;
+                        $error_msg = "Connection issue is found";
                         $success = false;
                     }
                     else {
@@ -134,7 +134,7 @@
                         $stmt->bind_param("sss", $username, $email, $hashed_pwd);
                         if(!$stmt->execute())
                         {
-                            $error_msg = "Execute failed: (' . $stmt->errno . ')" . $stmt->error;
+                            $error_msg = "An error has occured";
                             $success = false;
                         }
                         $stmt->close();
