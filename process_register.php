@@ -62,6 +62,27 @@
                     $error_msg .= "<li class='list-group-item'>Invalid email format</li>";
                     $success = false;
                 }
+                
+                // Check password strength
+                if (strlen($pwd) < 8) {
+                $error_msg = "Password needs a minimum of 8 characters!";
+                $success = false;
+                }
+                elseif(!preg_match("#[0-9]+#",$pwd)) {
+                $error_msg = "Your Password Must Contain At Least 1 Number!";
+                $success = false;
+            }
+            elseif(!preg_match("#[A-Z]+#",$pwd)) {
+                $error_msg = "Your Password Must Contain At Least 1 Capital Letter!";
+                $success = false;
+            }
+            elseif(!preg_match("#[a-z]+#",$pwd)) {
+                $error_msg = "Your Password Must Contain At Least 1 Lowercase Letter!";
+                $success = false;
+            }
+                
+                
+                
                 /* Check if the password entry is empty */
                 if(empty($pwd)) {
                    $error_msg .= "<li class='list-group-item'>Password entry is required</li>";

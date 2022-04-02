@@ -65,9 +65,14 @@
                     <div class="col-md-1">
                         <label for="pwd_input" class="col-form-label">Password:</label>
                     </div>
+                   
+                   
                     <div class="col-md pb-3">
                         <input type="password" class="form-control" id="pwd_input" name="pwd_input" placeholder="Enter Password" required>
+                    
                     </div>
+                  
+                    
                     <div class="col-md-1.5">
                         <label for="pwd_confirm" class="col-form-label">Confirm Password:</label>
                     </div>
