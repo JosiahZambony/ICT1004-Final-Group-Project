@@ -33,7 +33,7 @@
                 if($_SESSION["name"]) {
                     echo "<li class='nav-item px-3'>"
                        . "  <a class='nav-link' href='logout.php'>"
-                       . "      <span class='px-1'>Logout</span>"
+                       . "      <span>Logout</span>"
                        . "  </a>"
                        . "</li>";
                     echo "<li class='nav-item px-3'>"
