@@ -35,28 +35,28 @@
         <?php
         include "nav_bar.php";
         ?>
-
-        <section class="row white-bg-img">
-            <div class="col-md p-3">
-                <img class="pikachu-img img" src="images/pikachu.png" alt="Pikachu Picture">
-            </div>
-            <div class="message-box col-md ml-5 mr-5 p-3 align-self-center">
-                <article class="container py-auto">
-                    <h1>Welcome Admin!</h1>
-                    <div class="col-form-label">
-                        <a href = "addcard.php">add new card</a>
-                    </div>
-                    <div class="col-form-label">
-                        <a href = "editcard.php">edit qty of cards</a>
-                    </div>
-                    <div class="col-form-label">
-                        <a href = "deletecard.php">delete card</a>
-                    </div>
-                    <div class="col-form-label">
-                        <a href = "file_upload.php">Upload Image</a>
-                    </div>
-                </article>
-            </div>
+        <section>
+            <?php
+            if (isset($_FILES['uploadedFile']) && $_FILES['uploadedFile']['error'] === UPLOAD_ERR_OK) {
+                // get details of the uploaded file
+                $fileTmpPath = $_FILES['uploadedFile']['tmp_name'];
+                $fileName = $_FILES['uploadedFile']['name'];
+                $fileNameCmps = explode(".", $fileName);
+                $fileExtension = strtolower(end($fileNameCmps));
+                
+                //sanitization
+                //$newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+               
+                $allowedfileExtensions = array('jpg', 'png');
+                if (in_array($fileExtension, $allowedfileExtensions)) {
+                    // directory in which the uploaded file will be moved
+                    $uploadFileDir = './images/';
+                    $dest_path = $uploadFileDir . $fileName;
+                    move_uploaded_file($fileTmpPath, $dest_path);
+                }
+            }
+            header("Location: file_upload.php");
+            ?>
         </section>
     </body>
 </html>

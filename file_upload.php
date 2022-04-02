@@ -42,19 +42,15 @@
             </div>
             <div class="message-box col-md ml-5 mr-5 p-3 align-self-center">
                 <article class="container py-auto">
-                    <h1>Welcome Admin!</h1>
-                    <div class="col-form-label">
-                        <a href = "addcard.php">add new card</a>
-                    </div>
-                    <div class="col-form-label">
-                        <a href = "editcard.php">edit qty of cards</a>
-                    </div>
-                    <div class="col-form-label">
-                        <a href = "deletecard.php">delete card</a>
-                    </div>
-                    <div class="col-form-label">
-                        <a href = "file_upload.php">Upload Image</a>
-                    </div>
+                    <h1>File Upload</h1>
+                    <form method="POST" action="process_upload.php" enctype="multipart/form-data">
+                        <div>
+                            <span>Choose a file:</span>
+                            <input type="file" id="file-upload" name="uploadedFile">
+                        </div>
+
+                        <input type="submit" name="uploadBtn" value="Upload" />
+                    </form>
                 </article>
             </div>
         </section>
