@@ -50,7 +50,7 @@
                         <label for="user_input" class="col-form-label">Username:</label>
                     </div>
                     <div class="col-md-11">
-                        <input type="text" class="form-control" id="user_input" name="user_input" placeholder="Enter Username" maxlength="45">
+                        <input type="text" class="form-control" id="user_input" name="user_input" placeholder="Enter Username" maxlength="45" required>
                     </div>
                 </div>
                 <div class="form-row pb-3">
@@ -58,7 +58,7 @@
                         <label for="email_input" class="col-form-label">Email:</label>
                     </div>
                     <div class="col-md-11">
-                        <input type="email" class="form-control" id="email_input" name="email_input" placeholder="Enter Email">
+                        <input type="email" class="form-control" id="email_input" name="email_input" placeholder="Enter Email" required>
                     </div>
                 </div>
                 <div class="form-row pb-3">
@@ -66,17 +66,17 @@
                         <label for="pwd_input" class="col-form-label">Password:</label>
                     </div>
                     <div class="col-md pb-3">
-                        <input type="password" class="form-control" id="pwd_input" name="pwd_input" placeholder="Enter Password">
+                        <input type="password" class="form-control" id="pwd_input" name="pwd_input" placeholder="Enter Password" required>
                     </div>
                     <div class="col-md-1.5">
                         <label for="pwd_confirm" class="col-form-label">Confirm Password:</label>
                     </div>
                     <div class="col-md pb-3">
-                        <input type="password" class="form-control" id="pwd_confirm" name="pwd_confirm" placeholder="Confirm Password">
+                        <input type="password" class="form-control" id="pwd_confirm" name="pwd_confirm" placeholder="Confirm Password" required>
                     </div>
                 </div>
                 <div class="form-row pb-3 pl-1">
-                    <button class="btn btn-outline-dark" type="submit">Login</button>
+                    <button class="btn btn-outline-dark" type="submit">Register</button>
                 </div>
             </form>
         </section>
