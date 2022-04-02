@@ -16,3 +16,12 @@ Goal for next change:
 - Add more information to landing page
 - Display Username at Nav Bar
 - Finish Social Media Links at Footer
+
+## 02/04/2022 - Changes made by Josiah
+- Display Username at Nav Bar
+
+Goal for next change:
+- Add Card List Page
+- Add Cart Page
+- Add more information to landing page
+- Finish Social Media Links at Footer
