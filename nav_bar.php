@@ -20,17 +20,14 @@
             <li class="nav-item px-3">
                 <a class="nav-link" href="#">About Us</a>
             </li>
-            <!--
-            <li class="nav-item px-3">
-                <a class="nav-link" href="login.php">
-                    <img src="images/box-arrow-right.svg" width="25" height="25" class="d-inline-block align-top" alt="box-arrow-right icon"/>
-                    <span class="px-1">Login</span>
-                </a>
-            </li>
-            -->
             <?php
                 session_start();
                 if($_SESSION["name"]) {
+                    echo "<li class='nav-item px-3'>"
+                       . "  <a class='nav-link' href='cart.php'>"
+                       . "      <span>Cart</span>"
+                       . "  </a>"
+                       . "</li>";
                     echo "<li class='nav-item px-3'>"
                        . "  <a class='nav-link' href='logout.php'>"
                        . "      <span>Logout</span>"
