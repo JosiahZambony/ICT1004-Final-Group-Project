@@ -37,13 +37,13 @@
         ?>
         <section class="row-md">
             <div class="container p-3">
-                <h1 class="display-4">Edit Cards</h1>
+                <h1 class="display-4">Delete Card</h1>
             </div>
         </section>
         <?php
-        edit_card_in_table();
+        select_card_in_table();
 
-        function edit_card_in_table() {
+        function select_card_in_table() {
 
             global $success, $error_msg;
 
@@ -61,22 +61,21 @@
                 $stmt = "SELECT * FROM cards_info";
                 $result = $conn->query($stmt);
                 if ($result->num_rows > 0) {
-                    echo "<table> <tr>"
-                        ."<th>Card Name</th>"
-                        ."<th>Quantity</th>"
-                        ."<th>Link</th>"
-                        ."<th></th></tr>";
+                    echo
+                    "<form action='process_delete_card.php' method='post'><div class='col-md-11'>
+                        <label class='col-form-label'>Select which card to delete:</label>
+                    </div>"
+                    . "<div class='col-md-11'>
+                        <select id='card_name' name='card_name'>";
 
                     while ($row = $result->fetch_assoc()) {
-                        echo 
-                        "<form action='process_edit_card.php' method='post'><tr>"
-                        ."<td><input type='hidden' class='form-control' id='card_name' name='card_name' value ='".$row["name"]."'>".$row["name"]."</td>"
-                        ."<td><input type='number' id='quantity' name='quantity' min='1' value = '".$row["quantity"]."'></td>" 
-                        ."<td><input type='text' class='form-control' id='link' name='link' placeholder='Image Link here' maxlength='255' value ='".$row["picture_link"]."'></td>"
-                        . "<td><button class='btn btn-outline-dark' type='submit'>Update</button></td>"
-                        ."</tr></form>";
+                        echo
+                        "<option value='" . $row["name"] . "'>" . $row["name"] . "</option>";
                     }
-                    echo "</table>";
+                    echo "</select></div>"
+                    . "<div class='form-row pb-3 pl-1'>
+                        <button class='btn btn-outline-dark' type='submit'>Delete</button>
+                    </div></form>";
                 } else {
                     //$error_msg = "Execute failed: (' . $stmt->errno . ')" . $stmt->error;
                     $error_msg = "No results found";
@@ -86,8 +85,8 @@
             }
             $conn->close();
         }
-        
-        if(!$success){
+
+        if (!$success) {
             echo $error_msg;
         }
         ?>

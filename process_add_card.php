@@ -29,7 +29,7 @@
                 crossorigin="anonymous">
         </script>
 
-        <title>Register</title>
+        <title>Admin</title>
     </head>
     <body>
         <?php
@@ -106,7 +106,7 @@
                 . "<ul class='list-group list-group-flush pb-5'>"
                 . $error_msg
                 . "</ul>"
-                . "<button class='btn btn-outline-dark' type='submit'>Return to add card</button>"
+                . "<button class='btn btn-outline-dark' type='submit'>Try Again</button>"
                 . "</form>";
             }
 

@@ -29,7 +29,7 @@
                 crossorigin="anonymous">
         </script>
 
-        <title>Register</title>
+        <title>Admin</title>
     </head>
     <body>
         <?php

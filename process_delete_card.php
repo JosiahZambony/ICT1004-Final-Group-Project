@@ -41,8 +41,6 @@
             $error_msg = "";
 
             $cardname = $_POST["card_name"];
-            $qty = $_POST["quantity"];
-            $link = $_POST["link"];
 
             /* Check for empty inputs */
             if (empty($cardname)) {
@@ -51,25 +49,20 @@
             } else {
                 $cardname = sanitise_input($cardname);
             }
-            if (empty($qty)) {
-                $error_msg .= "<li class='list-group-item'>Quantity is empty</li>";
-                $success = false;
-            }
-            if (empty($link)) {
-                $error_msg .= "<li class='list-group-item'>Image Link is empty</li>";
-                $success = false;
-            } else {
-                $link = sanitise_input($link);
-            }
             
             
             if ($success){
-                edit_card_to_db();
+                delete_card_from_db();
             }
             
 
-            if (!$success) {
-                echo "<form class='container p-3' action='editcard.php'>"
+            if ($success) {
+                echo "<form class='container p-3' action='admin.php'>"
+                . "<h1 class='display-4'>Successfully Deleted</h1>"
+                . "<button class='btn btn-outline-dark' type='submit'>Return</button>"
+                . "</form>";
+            } else {
+                echo "<form class='container p-3' action='deletecard.php'>"
                 . "<h1 class='display-4'>Oops!</h1>"
                 . "<p class='lead'>The following input errors were detected:</p>"
                 . "<ul class='list-group list-group-flush pb-5'>"
@@ -77,8 +70,6 @@
                 . "</ul>"
                 . "<button class='btn btn-outline-dark' type='submit'>Try Again</button>"
                 . "</form>";
-            }else{
-                header("Location: editcard.php");
             }
 
             /* Helper function that checks input for malicious or unwanted content */
@@ -92,9 +83,9 @@
 
             /* Helper function to write the member data to the DB */
 
-            function edit_card_to_db() {
+            function delete_card_from_db() {
 
-                global $cardname, $qty, $link, $success, $error_msg;
+                global $cardname, $success, $error_msg;
 
                 /* Create database connection */
                 $config = parse_ini_file("../../private/db-config.ini");
@@ -107,10 +98,10 @@
                     $success = false;
                 } else {
                     // Prepare the statement
-                    $stmt = $conn->prepare("UPDATE cards_info SET quantity=?, picture_link=? WHERE name = ?");
+                    $stmt = $conn->prepare("DELETE FROM cards_info WHERE name = ?");
 
                     // Bind & Execute the query statement:
-                    $stmt->bind_param("iss", $qty, $link,$cardname);
+                    $stmt->bind_param("s", $cardname);
                     if (!$stmt->execute()) {
                         //$error_msg = "Execute failed: (' . $stmt->errno . ')" . $stmt->error;
                         $error_msg = "Oops failed to edit to db";

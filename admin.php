@@ -29,7 +29,7 @@
                 crossorigin="anonymous">
         </script>
 
-        <title>Register</title>
+        <title>Admin</title>
     </head>
     <body>
         <?php
@@ -50,10 +50,7 @@
                         <a href = "editcard.php">edit qty of cards</a>
                     </div>
                     <div class="col-form-label">
-                        <a href = "delcard.php">delete card</a>
-                    </div>
-                    <div class="col-form-label">
-                        <a href = "">logout</a>
+                        <a href = "deletecard.php">delete card</a>
                     </div>
                 </article>
             </div>
