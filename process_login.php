@@ -61,7 +61,17 @@
                 }
                 
                 if($success) {
+                    
+                    $config = parse_ini_file("../../private/db-config.ini");
+                    $link = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
+                   
+                    require 'Zebra_Session.php';
+                    $session = new Zebra_Session($link, 'sEcUr1tY_c0dE');
+
+                    // Session
+                    
                     $_SESSION["name"] = $username;
+                    
                     echo "<form class='container p-3' action='index.php'>"
                        . "<h1 class='display-4'>Welcome back, " . $_SESSION["name"] . "</h1>"
                        . "<button class='btn btn-outline-dark' type='submit'>Home</button>"
@@ -122,6 +132,9 @@
                     }
                     $conn->close();
                 }
+                
+                
+                
             ?>
         </section>
     </body>
