@@ -65,3 +65,91 @@ div.message-box {
     border-radius: 15px;
     box-shadow: 0px 4px 10px 0px black;
 }
+
+/* About Us Design */
+.our-team-title {
+    height: 75px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.team-img {
+    display: block;
+    max-width: 40%;
+    min-width: 300px;
+    height: 450px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10%;
+}
+
+.team-container {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-info {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.our-team-hr {
+    border-style: dotted;
+    border-width: 2px;
+    border-left: none;
+    border-right: none;
+    width: 50%;
+}
+
+.mission-statement-container {
+    background-image: url(../images/mission-statement.jpg);
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    margin: 0px;
+}
+
+.mission-title {
+    height: 150px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.mission-quote {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+}
+
+@media screen and (max-width: 600px) {
+.mission-quote {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+.our-values-container {
+    height: 400px;
+}
+
+.our-values-title {
+    height: 75px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}

@@ -6,13 +6,13 @@
                     <h4 class="m-0">About Us</h4>
                 </li>
                 <li class="footer-li container list-group-item">
-                    <a href="#" class="footer-nav">Our Team</a>
+                    <a href="about_us.php#Our_Team" class="footer-nav">Our Team</a>
                 </li>
                 <li class="footer-li container list-group-item">
-                    <a href="#" class="footer-nav">Our Mission</a>
+                    <a href="about_us.php#Our_Mission" class="footer-nav">Our Mission</a>
                 </li>
                 <li class="footer-li container list-group-item">
-                    <a href="#" class="footer-nav">Our Values</a>
+                    <a href="about_us.php#Our_Values" class="footer-nav">Our Values</a>
                 </li>
             </ul>
         </div>

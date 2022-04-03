@@ -43,8 +43,8 @@
                 <article class="container py-auto">
                     <h1>Welcome to PokeTrade!</h1>
                     <p class="lead">Need to find a card?</p>
-                    <button type="button" class="btn btn-outline-dark mb-3" onclick="location.href = 'http://34.145.96.82/ICT1004/card_list.php'">Click here to start</button>
-                </article>
+                    <a href="card_list.php" class="btn btn-outline-dark mb-3" role="button">Click here to start</a>
+                    </article>
             </div>
         </section>
         <section class="row">

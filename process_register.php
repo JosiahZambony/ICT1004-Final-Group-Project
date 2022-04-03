@@ -71,15 +71,15 @@
                 elseif(!preg_match("#[0-9]+#",$pwd)) {
                 $error_msg = "Your Password Must Contain At Least 1 Number!";
                 $success = false;
-            }
-            elseif(!preg_match("#[A-Z]+#",$pwd)) {
-                $error_msg = "Your Password Must Contain At Least 1 Capital Letter!";
-                $success = false;
-            }
-            elseif(!preg_match("#[a-z]+#",$pwd)) {
-                $error_msg = "Your Password Must Contain At Least 1 Lowercase Letter!";
-                $success = false;
-            }
+                }
+                elseif(!preg_match("#[A-Z]+#",$pwd)) {
+                    $error_msg = "Your Password Must Contain At Least 1 Capital Letter!";
+                    $success = false;
+                }
+                elseif(!preg_match("#[a-z]+#",$pwd)) {
+                    $error_msg = "Your Password Must Contain At Least 1 Lowercase Letter!";
+                    $success = false;
+                }
                 
                 
                 
