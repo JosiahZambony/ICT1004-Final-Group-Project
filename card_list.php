@@ -43,48 +43,32 @@
             </div>
         </section>
         <section class="cards">
-             <?php
-            $imagesDirectory = "card/";
-
-            if (is_dir($imagesDirectory)) {
-                $opendirectory = opendir($imagesDirectory);
-
-                while (($image = readdir($opendirectory)) !== false) {
-                    if (($image == '.') || ($image == '..')) {
-                        continue;
-                    }
-
-                    $imgFileType = pathinfo($image, PATHINFO_EXTENSION);
-                    
-                    $imgFileName = pathinfo($image, PATHINFO_FILENAME);
-
-                    if (($imgFileType == 'jpg') || ($imgFileType == 'png')) {
-                        ?>     
+            <?php
+            $config = parse_ini_file("../../private/db-config.ini");
+            $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
+            $res=mysqli_query($conn,"select * from cards_info");
+            while($row= mysqli_fetch_array($res)){
+                ?>
             <div class ="card">
-                <div class ="card-img">    
-                    <?php
-                    echo "<img src='card/" . $image . "'>";
-                    ?>" 
-                </div>
-                <div class ='card-info'>
-                    <h1><?php echo $imgFileName?></h1>
-                    <p class="price">Price</p>
-                    <p>Description</p>
-                    <p><button>Add to Cart</button></p>
+                            <div class ="card-img">    
+                                <img src="../ICT1004<?php echo $row["picture_link"]; ?>" alt=""/>
+                            </div>
+                            <div class ='card-info'>
+                                <h1><?php echo $row["name"]; ?></h1>
+                                <p>Rarity: <?php echo $row["rarity"];?></p>
+                                <p>Generation: <?php echo $row["generation"]?></p>
+                                <p>Element: <?php echo $row["element"]?></p>
+                                <p>Type: <?php echo $row["type"]?></p>
+                                <p>Quantity: <?php echo $row["quantity"]?></p>
+                                <p><button>Add to Cart</button></p>
 
-              </div>
+                            </div>
 
-            </div>
+                        </div>
+            <?php
+            }
+            ?>
 
-<?php
-
-}
-}
-
-closedir($opendirectory);
-}
-?>
-  
 
 
         </section>
