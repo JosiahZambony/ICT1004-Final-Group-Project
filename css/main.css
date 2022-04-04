@@ -132,15 +132,15 @@ div.message-box {
 }
 
 @media screen and (max-width: 600px) {
-.mission-quote {
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 5vw;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
+    .mission-quote {
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 5vw;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
 
 .our-values-container {
@@ -152,4 +152,56 @@ div.message-box {
     display: flex;
     justify-content: left;
     align-items: center;
+}
+
+
+#card_container img
+{
+    width: 300px;
+
+    padding: 20px;
+
+}
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+
+
+}
+.card {
+    text-align: center;
+    font-family: arial;
+    flex: 0 1 24%;
+
+
+
+}
+.card-img img{
+    width:200px;
+}
+
+
+.price {
+
+    color: grey;
+    font-size: 22px;
+}
+
+.card button {
+
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+.card button:hover {
+    opacity: 0.7;
 }
