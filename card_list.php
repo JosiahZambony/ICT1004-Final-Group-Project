@@ -35,10 +35,103 @@
         <?php
             include "nav_bar.php";
         ?>
-        <section class="row-md">
-            <div class="container p-3">
+        <section class="row-md available-cards-banner">
+            <div class="container">
                 <h1>Available Cards</h1>
             </div>
         </section>
+        
+        <nav class="navbar navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#filterToggler" 
+                aria-controls="filterToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="align-middle"> Filter</span>
+            </button>
+        </nav>
+        
+        <div id="filterToggler">
+            <section class="row-md filter-list">
+                <form class="container p-3">
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <div class="row-md">
+                                <label class="form-label text-white" for="card-rarity">Rarity</label>
+                            </div>
+                            <div class="row-md mb-2">
+                                <select class="custom-select" id="card-rarity" name="card-rarity">
+                                    <option value="*">All</option>
+                                    <option value="common">One</option>
+                                    <option value="uncommon">Two</option>
+                                    <option value="rare">Three</option>
+                                    <option value="others">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row-md">
+                                <label class="form-label text-white" for="card-generation">Generation</label>
+                            </div>
+                            <div class="row-md mb-2">
+                                <select class="custom-select" id="card-generation" name="card-generation">
+                                    <option value="*">All</option>
+                                    <option value="1">Generation 1</option>
+                                    <option value="2">Generation 2</option>
+                                    <option value="3">Generation 3</option>
+                                    <option value="4">Generation 4</option>
+                                    <option value="5">Generation 5</option>
+                                    <option value="6">Generation 6</option>
+                                    <option value="7">Generation 7</option>
+                                    <option value="8">Generation 8</option>
+                                    <option value="9">Generation 9</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row-md">
+                                <label class="form-label text-white" for="card-element">Element</label>
+                            </div>
+                            <div class="row-md mb-2">
+                                <select class="custom-select" id="card-element" name="card-element">
+                                    <option value="*">All</option>
+                                    <option value="normal">Normal</option>
+                                    <option value="bug">Bug</option>
+                                    <option value="dark">Dark</option>
+                                    <option value="electric">Electric</option>
+                                    <option value="fire">Fire</option>
+                                    <option value="flying">Flying</option>
+                                    <option value="grass">Grass</option>
+                                    <option value="ground">Ground</option>
+                                    <option value="psychic">Psychic</option>
+                                    <option value="steel">Steel</option>
+                                    <option value="water">Water</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row-md">
+                                <label class="form-label text-white" for="card-type">Type</label>
+                            </div>
+                            <div class="row-md mb-2">
+                                <select class="custom-select" id="card-type" name="card-type">
+                                    <option value="*">All</option>
+                                    <option value="basic">Basic Pokemon</option>
+                                    <option value="stage1">Stage 1 Pokemon</option>
+                                    <option value="stage2">Stage 2 Pokemon</option>
+                                    <option value="trainer">Trainer</option>
+                                    <option value="energy">Energy</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-3 pt-2 pb-2">
+                            <button class="btn btn-outline-light" type="submit">Filter</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+        
+        
     </body>
 </html>

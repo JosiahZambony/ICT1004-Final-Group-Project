@@ -153,3 +153,23 @@ div.message-box {
     justify-content: left;
     align-items: center;
 }
+
+/* Card List Page Design */
+.available-cards-banner {
+    background-color: lightslategray;
+    color: white;
+    height: 125px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.filter-list {
+    background-color: gray;
+    position: relative;
+    max-height: 500px;
+    min-height: 170px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
