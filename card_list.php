@@ -53,19 +53,19 @@
         
         <div id="filterToggler">
             <section class="row-md filter-list">
-                <form class="container p-3">
+                <form class="container p-3" action="card_list.php" method="post">
                     <div class="form-row">
                         <div class="col-md-3">
                             <div class="row-md">
                                 <label class="form-label text-white" for="card-rarity">Rarity</label>
                             </div>
                             <div class="row-md mb-2">
-                                <select class="custom-select" id="card-rarity" name="card-rarity">
-                                    <option value="*">All</option>
-                                    <option value="common">One</option>
-                                    <option value="uncommon">Two</option>
-                                    <option value="rare">Three</option>
-                                    <option value="others">Three</option>
+                                <select class="custom-select" id="card-rarity" name="rarity">
+                                    <option value="">Any</option>
+                                    <option value="common">Common</option>
+                                    <option value="uncommon">Uncommon</option>
+                                    <option value="rare">Rare</option>
+                                    <option value="others">Others</option>
                                 </select>
                             </div>
                         </div>
@@ -74,8 +74,8 @@
                                 <label class="form-label text-white" for="card-generation">Generation</label>
                             </div>
                             <div class="row-md mb-2">
-                                <select class="custom-select" id="card-generation" name="card-generation">
-                                    <option value="*">All</option>
+                                <select class="custom-select" id="card-generation" name="generation">
+                                    <option value="">Any</option>
                                     <option value="1">Generation 1</option>
                                     <option value="2">Generation 2</option>
                                     <option value="3">Generation 3</option>
@@ -93,11 +93,12 @@
                                 <label class="form-label text-white" for="card-element">Element</label>
                             </div>
                             <div class="row-md mb-2">
-                                <select class="custom-select" id="card-element" name="card-element">
-                                    <option value="*">All</option>
+                                <select class="custom-select" id="card-element" name="element">
+                                    <option value="">Any</option>
                                     <option value="normal">Normal</option>
                                     <option value="bug">Bug</option>
                                     <option value="dark">Dark</option>
+                                    <option value="dragon">Dragon</option>
                                     <option value="electric">Electric</option>
                                     <option value="fire">Fire</option>
                                     <option value="flying">Flying</option>
@@ -114,8 +115,8 @@
                                 <label class="form-label text-white" for="card-type">Type</label>
                             </div>
                             <div class="row-md mb-2">
-                                <select class="custom-select" id="card-type" name="card-type">
-                                    <option value="*">All</option>
+                                <select class="custom-select" id="card-type" name="type">
+                                    <option value="">Any</option>
                                     <option value="basic">Basic Pokemon</option>
                                     <option value="stage1">Stage 1 Pokemon</option>
                                     <option value="stage2">Stage 2 Pokemon</option>
@@ -133,36 +134,93 @@
                 </form>
             </section>
         </div>
-        
-        <section class="cards">
-            <?php
+        <?php
+            /* Start of Query */
+            $query = "SELECT * FROM cards_info";
+            
+            $key = array();
+            $value = array();
+            
+            if(isset($_POST['submit'])){ 
+                //code to be executed
+            }
+            if(!empty($_POST["rarity"])) {
+                $key[] = "rarity";
+                $columns[] = '"'.$_POST["rarity"].'"';
+            }
+            if(!empty($_POST["generation"])) {
+                $key[] = "generation";
+                $columns[] = $_POST["generation"];
+            }
+            if(!empty($_POST["element"])) {
+                $key[] = "element";
+                $columns[] = '"'.$_POST["element"].'"';
+            }
+            if(!empty($_POST["type"])) {
+                $key[] = "type";
+                $columns[] = '"'.$_POST["type"].'"';
+            }
+            
+            if(!empty($columns) && !empty($key)) {
+                $query .= " WHERE ";
+                for($x = 0; $x < count($columns); $x++) {
+                    if($x == 0) {
+                        $query .= $key[$x] . " = " .$columns[$x];
+                    }
+                    else {
+                        $query .= " AND " . $key[$x] . " = " .$columns[$x];
+                    }
+                }
+            }
+            
+            $query .= ";";
+
+            /* Create database connection */
             $config = parse_ini_file("../../private/db-config.ini");
             $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
-            $res=mysqli_query($conn,"select * from cards_info");
-            while($row= mysqli_fetch_array($res)){
-                ?>
-            <div class ="card">
-                            <div class ="card-img">    
-                                <img src="../ICT1004<?php echo $row["picture_link"]; ?>" alt=""/>
-                            </div>
-                            <div class ='card-info'>
-                                <h1><?php echo $row["name"]; ?></h1>
-                                <p>Rarity: <?php echo $row["rarity"];?></p>
-                                <p>Generation: <?php echo $row["generation"]?></p>
-                                <p>Element: <?php echo $row["element"]?></p>
-                                <p>Type: <?php echo $row["type"]?></p>
-                                <p>Quantity: <?php echo $row["quantity"]?></p>
-                                <p><button>Add to Cart</button></p>
 
-                            </div>
-
-                        </div>
-            <?php
+            $result = mysqli_query($conn, $query);
+            $conn->close();
+            
+            $x = 0;
+            
+        ?>
+        <section class="container pt-2 pb-2">
+        <?php
+            echo '<div class="row">';
+            while($row= mysqli_fetch_array($result)) {
+                if(($x != 0) && ($x%3 == 0)) {
+                    echo '</div><div class="row">';
+                }
+        ?>
+            <div class="card col-md-4 p-0">
+                <img class ="card-image" src="../ICT1004<?php echo $row["picture_link"];?>" alt="">
+                <div class="card-information">
+                    <h1 class="card-title"><?php echo $row["name"];?></h1>
+                    <p class="card-rarity">Rarity: <?php echo $row["rarity"];?></p>
+                    <p class="card-generation">Generation: <?php echo $row["generation"]?></p>
+                    <p class="card-element">Element: <?php echo $row["element"]?></p>
+                    <p class="card-type">Type: <?php echo $row["type"]?></p>
+                    <p class="card-qty">Quantity: <?php echo $row["quantity"]?></p>
+        <?php
+                session_start();
+                if($_SESSION["name"]) {
+                    echo '<div class="card-btn">';
+                    echo '<a class="btn btn-outline-dark" href="">Add to Cart</a>';
+                    echo '</div>';
+                }
+        ?>
+                </div>
+            </div>
+        <?php
+                $x++;
             }
-            ?>
-
-
-
+            echo '</div>';
+            $result -> free_result();
+        ?>
         </section>
-</body>
+        <?php
+            include "footer.php";
+        ?>
+    </body>
 </html>
