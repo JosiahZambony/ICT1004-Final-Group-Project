@@ -205,10 +205,17 @@
         <?php
                 session_start();
                 if($_SESSION["name"]) {
+                    echo '<form action="" method="post">';
+                    echo '<select class="custom-select" id="choose-qty" name="choose-qty">';
+                    for($y = 1; $y <= $row["quantity"]; $y++) {
+                        echo "<option value=". $y .">". $y ."</option>";
+                    }
+                    echo "</select>";
                     echo '<div class="card-btn">';
-                    echo '<a class="btn btn-outline-dark" href="">Add to Cart</a>';
+                    echo '<button class="btn btn-outline-dark" type="submit">Add To Cart</button>';
                     echo '</div>';
                 }
+                echo '</form>';
         ?>
                 </div>
             </div>
