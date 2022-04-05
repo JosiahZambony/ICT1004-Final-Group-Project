@@ -134,13 +134,6 @@
             </section>
         </div>
         
-        
-    </body>
-        <section class="row-md">
-            <div class="container p-3">
-                <h1 class="display-4">Available Cards</h1>
-            </div>
-        </section>
         <section class="cards">
             <?php
             $config = parse_ini_file("../../private/db-config.ini");
@@ -171,6 +164,5 @@
 
 
         </section>
-</html>
 </body>
 </html>
