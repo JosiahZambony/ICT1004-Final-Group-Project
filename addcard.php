@@ -37,7 +37,7 @@
         session_start();
         
          if (($_SESSION['name']) != 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!') {
-             header("Location: http://34.145.96.82/ICT1004/card_list.php");
+             header("Location: https://34.145.96.82/ICT1004/card_list.php");
             exit();
         
     }

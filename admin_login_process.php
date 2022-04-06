@@ -80,7 +80,7 @@
                     // Session
                     
                     $_SESSION["name"] = 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!';
-                    header('Location: http://34.145.96.82/ICT1004/admin.php');
+                    header('Location: https://34.145.96.82/ICT1004/admin.php');
                     
                    // echo "<form class='container p-3' action='index.php'>"
                   //     . "<h1 class='display-4'>Welcome back, " . $_SESSION["name"] . "</h1>"
