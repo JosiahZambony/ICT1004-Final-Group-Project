@@ -78,12 +78,13 @@
                     require 'Zebra_Session.php';
                     $session = new Zebra_Session($link, 'sEcUr1tY_c0dE');
 
-                    // Session
+                    // Session for admin login, but 2FA is not passed
                     
                     
-                    
-                    $_SESSION["name"] = 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!';
-                    header('Location: https://34.145.96.82/ICT1004/admin.php');
+                   $_SESSION_["name"] = 'Poketrade Admin';
+                   $_SESSION['adminid'] = 'abdoawbdowdowefo!@#!90e209#@40u0!';
+                   
+                    header("Location: https://34.145.96.82/ICT1004/admintwofa.php");
                     
                    // echo "<form class='container p-3' action='index.php'>"
                   //     . "<h1 class='display-4'>Welcome back, " . $_SESSION["name"] . "</h1>"

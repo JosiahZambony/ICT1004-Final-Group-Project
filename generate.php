@@ -45,7 +45,13 @@
         </section>
         <section class="row-md">
                   <?php 
-
+        session_start();
+        include "nav_bar.php";
+        
+         if (($_SESSION['adminid']) != 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!') {
+             header("Location: https://34.145.96.82/ICT1004/card_list.php");
+            exit();
+         }
 
         require_once 'PHPGangsta/GoogleAuthenticator.php';
         $ga = new PHPGangsta_GoogleAuthenticator();

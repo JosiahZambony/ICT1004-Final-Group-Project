@@ -52,12 +52,11 @@
                 $success = true;
                 $error_msg = "";
 
-                $code = $_POST["user_input"];
-                debug_to_console('dawdawd');
-                debug_to_console($code);
+                $code = $_POST["twofa"];
+                
                 
 
-                /* Check if the username entry is empty */
+                /* Check if the twofa entry is empty */
                 if(empty($code)) {
                    $error_msg .= "<li class='list-group-item'>2FA code is required</li>";
                    $success = false;
@@ -75,11 +74,11 @@
                     require 'Zebra_Session.php';
                     $session = new Zebra_Session($link, 'sEcUr1tY_c0dE');
 
-                    // Session
+                    // Session for admin login + 2FA passed
+                  
                     
-                    
-                    
-                    $_SESSION["name"] = 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!';
+                     $_SESSION["name"] = 'Poketrade Admin';
+                    $_SESSION["adminid"] = 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!';
                     header('Location: https://34.145.96.82/ICT1004/admin.php');
                     
                    // echo "<form class='container p-3' action='index.php'>"
@@ -101,14 +100,18 @@
 
                 /* Helper function to check 2FA code */
                 function twofa($code) {
+                    
 
                     global $code, $success, $error_msg;
 
                     /* Check 2FA */
                     $secret = 'Y6SKMCT633IF4VCW';
+                   
+                    $ga = new PHPGangsta_GoogleAuthenticator();
                     $checkResult = $ga->verifyCode($secret, $code, 2);    // 2 = 2*30sec clock tolerance
+                    debug_to_console($checkResult);
                         if ($checkResult) {
-                            echo 'OK';
+                            
                         }
                         else
                         {

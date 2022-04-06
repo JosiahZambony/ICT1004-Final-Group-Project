@@ -34,17 +34,23 @@
     </head>
     <body>
         <?php
-        
+               function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+
         // check for admin login
         session_start();
+        include "nav_bar.php";
         
-         if (($_SESSION['name']) != 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!') {
+         if (($_SESSION['adminid']) != 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!') {
              header("Location: https://34.145.96.82/ICT1004/card_list.php");
             exit();
         
     }
-    include "admin_nav_bar.php";
-    
         ?>
         
         
@@ -60,7 +66,7 @@
                         <a href = "addcard.php">Add new card</a>
                     </div>
                     <div class="col-form-label">
-                        <a href = "editcard.php">Edit qty of cards</a>
+                        <a href = "editcard.php">Edit quantity of cards</a>
                     </div>
                     <div class="col-form-label">
                         <a href = "deletecard.php">Delete card</a>

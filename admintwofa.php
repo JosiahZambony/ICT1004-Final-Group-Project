@@ -34,7 +34,15 @@
     </head>
     <body>
         <?php
-            include "nav_bar.php";
+         // check for admin login
+        session_start();
+        
+         if (($_SESSION['adminid']) != 'abdoawbdowdowefo!@#!90e209#@40u0!') {
+             header("Location: https://34.145.96.82/ICT1004/index.php");
+            exit();
+         }
+        
+            include "admin_nav_bar.php";
         ?>
         <section class="row-md">
             <div class="container p-3">
@@ -51,7 +59,7 @@
                         <label for="user_input" class="col-form-label">2FA Code:</label>
                     </div>
                     <div class="col-md-11">
-                        <input type="text" class="form-control" id="user_input" name="twofa" placeholder="Enter 2FA" required>
+                        <input type="text" class="form-control" id="twofa" name="twofa" placeholder="Enter 2FA" required>
                     </div>
                 </div>
                 
