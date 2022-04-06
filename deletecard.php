@@ -33,7 +33,16 @@
     </head>
     <body>
         <?php
-        include "nav_bar.php";
+        
+         // check for admin login
+        session_start();
+        
+         if (($_SESSION['name']) != 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!') {
+             header("Location: http://34.145.96.82/ICT1004/card_list.php");
+            exit();
+        
+    }
+    include "admin_nav_bar.php";
         ?>
         <section class="row-md">
             <div class="container p-3">

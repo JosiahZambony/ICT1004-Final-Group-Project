@@ -33,8 +33,20 @@
     </head>
     <body>
         <?php
-        include "nav_bar.php";
+        
+        // check for admin login
+        session_start();
+        
+         if (($_SESSION['name']) != 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!') {
+             header("Location: http://34.145.96.82/ICT1004/card_list.php");
+            exit();
+        
+    }
+    include "admin_nav_bar.php";
+    
         ?>
+        
+        
 
         <section class="row white-bg-img">
             <div class="col-md p-3">
@@ -44,13 +56,13 @@
                 <article class="container py-auto">
                     <h1>Welcome Admin!</h1>
                     <div class="col-form-label">
-                        <a href = "addcard.php">add new card</a>
+                        <a href = "addcard.php">Add new card</a>
                     </div>
                     <div class="col-form-label">
-                        <a href = "editcard.php">edit qty of cards</a>
+                        <a href = "editcard.php">Edit qty of cards</a>
                     </div>
                     <div class="col-form-label">
-                        <a href = "deletecard.php">delete card</a>
+                        <a href = "deletecard.php">Delete card</a>
                     </div>
                     <div class="col-form-label">
                         <a href = "file_upload.php">Upload Image</a>
