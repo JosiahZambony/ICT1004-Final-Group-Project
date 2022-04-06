@@ -86,6 +86,7 @@
                 $success = false;
             } else {
                 $link = sanitise_input($link);
+                $link = "/card/" . $link;
             }
             
             
