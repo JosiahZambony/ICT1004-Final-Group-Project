@@ -22,7 +22,23 @@
                     <h4 class="m-0">Connect With Us</h4>
                 </li>
                 <li class="footer-li container list-group-item">
-                    <a href="#" class="footer-nav">Our Team</a>
+                    <div class="row">
+                        <div class="col footer-icon">
+                        <a href="https://www.youtube.com" class="youtube-link">
+                            <i class="fa-2x fa-brands fa-youtube"></i>
+                        </a>
+                        </div>
+                        <div class="col footer-icon">
+                            <a href="https://www.facebook.com" class="facebook-link">
+                                <i class="fa-2x fa-brands fa-facebook-square"></i>
+                            </a>
+                        </div>
+                        <div class="col footer-icon">
+                            <a href="https://www.reddit.com" class="reddit-link">
+                                <i class="fa-2x fa-brands fa-reddit-square"></i>
+                            </a>
+                        </div>
+                    </div>
                 </li>
                 <li class="footer-li container list-group-item">
                     <h5>Our Location</h5>

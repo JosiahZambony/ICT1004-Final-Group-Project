@@ -6,6 +6,65 @@ body {
 }
 
 /* Footer Design */
+.footer-icon {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reddit-link:link {
+    color: grey;
+}
+
+.reddit-link:visited {
+    color: grey;
+}
+
+.reddit-link:hover {
+    text-decoration: none;
+    color: orangered;
+}
+
+.reddit-link:active {
+    color: grey;
+}
+
+.facebook-link:link {
+    color: grey;
+}
+
+.facebook-link:visited {
+    color: grey;
+}
+
+.facebook-link:hover {
+    text-decoration: none;
+    color: blue;
+}
+
+.facebook-link:active {
+    color: grey;
+}
+
+.youtube-link:link {
+    color: grey;
+}
+
+.youtube-link:visited {
+    color: grey;
+}
+
+.youtube-link:hover {
+    text-decoration: none;
+    color: red;
+}
+
+.youtube-link:active {
+    color: grey;
+}
+
 a.footer-nav:link {
     color: black;
 }

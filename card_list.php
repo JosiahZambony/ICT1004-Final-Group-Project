@@ -29,6 +29,7 @@
                 integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
                 crossorigin="anonymous">
         </script>
+        <script src="https://kit.fontawesome.com/20af070e50.js" crossorigin="anonymous"></script>
 
         <title>Card List</title>
     </head>
