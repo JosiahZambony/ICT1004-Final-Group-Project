@@ -44,29 +44,26 @@
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
             include "nav_bar.php";
+            require_once 'PHPGangsta/GoogleAuthenticator.php';
         ?>
         <section>
             <?php
                 $success = true;
                 $error_msg = "";
 
-                $username = $_POST["user_input"];
-                $pwd = $_POST["pwd_input"];
+                $code = $_POST["user_input"];
+                debug_to_console('dawdawd');
+                debug_to_console($code);
+                
 
                 /* Check if the username entry is empty */
-                if(empty($username)) {
-                   $error_msg .= "<li class='list-group-item'>Username entry is required</li>";
+                if(empty($code)) {
+                   $error_msg .= "<li class='list-group-item'>2FA code is required</li>";
                    $success = false;
                 }
-                /* Check if the password entry is empty */
-               
-                
-                if(empty($pwd)) {
-                   $error_msg .= "<li class='list-group-item'>Password entry is required</li>";
-                   $success = false;
-                }
+           
                 else {
-                    authenticate_user($pwd);
+                    twofa($code);
                 }
                 
                 if($success) {
@@ -91,9 +88,9 @@
                       
                 }
                 else {
-                    echo "<form class='container p-3' action='adminlogin.php'>"
+                    echo "<form class='container p-3' action='admintwofa.php'>"
                        . "<h1 class='display-4'>Oops!</h1>"
-                       . "<p class='lead'>The following input errors were detected:</p>"
+                       . "<p class='lead'>The following errors were detected:</p>"
                        . "<ul class='list-group list-group-flush pb-5'>"
                        . $error_msg 
                        . "</ul>"
@@ -101,59 +98,25 @@
                        . "</form>";
                 }
 
-                /* Helper function to write the member data to the DB */
-                function authenticate_user($pwd_data) {
+                /* Helper function to check 2FA code */
+                function twofa($code) {
 
-                    global $username, $success, $error_msg;
+                    global $code, $success, $error_msg;
 
-                    /* Create database connection */
-                    $config = parse_ini_file("../../private/db-config.ini");
-                    $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
-                    
-                    /* Check connection */
-                    if($conn->connect_error) {
-                        
-                        $error_msg .= "Connection issue is found";
-                        $success = false;
-                    }
-                    else {
-                         // Prepare the statement
-                        $stmt = $conn->prepare("SELECT * FROM admin_login WHERE admin_username=?");
-                          
-                        // Bind & Execute the query statement:
-                        $stmt->bind_param("s", $username);
-                        
-                        $stmt->execute();
-                        
-                        debug_to_console($username);
-                        $result = $stmt->get_result();
-                        if($result->num_rows > 0)
-                        {
-                            
-                            $row = $result->fetch_assoc();
-                            $hashed_pwd = $row["admin_password"];
-                            // Check if the password matches:
-                            
-                            if(!password_verify($pwd_data, $hashed_pwd))
-                            
-                            
-                            {
-                                
-                                // Don't be too specific with the error message - hackers don't
-                                // need to know which one they got right or wrong. :)
-                                $error_msg .= "<li class='list-group-item'>Username not found or Password doesn't match...</li>";
-                                $success = false;
-                            }
+                    /* Check 2FA */
+                    $secret = 'Y6SKMCT633IF4VCW';
+                    $checkResult = $ga->verifyCode($secret, $code, 2);    // 2 = 2*30sec clock tolerance
+                        if ($checkResult) {
+                            echo 'OK';
                         }
                         else
                         {
-                            $error_msg .= "<li class='list-group-item'>Username not found or password doesn't match...</li>";
+                            $error_msg .= "<li class='list-group-item'>2FA code did not match!</li>";
                             $success = false;
                         }
-                        $stmt->close();
+                        
                     }
-                    $conn->close();
-                }
+                  
                 
                 
                 
