@@ -33,74 +33,67 @@
     </head>
     <body>
         <?php
-        
-         // check for admin login
-        session_start();
-        
-         if (($_SESSION['name']) != 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!') {
-             header("Location: https://34.145.96.82/ICT1004/card_list.php");
-            exit();
-        
-    }
-    include "admin_nav_bar.php";
+        include "nav_bar.php";
         ?>
         <section class="row-md">
             <div class="container p-3">
                 <h1 class="display-4">Edit Cards</h1>
             </div>
         </section>
-        <?php
-        edit_card_in_table();
+        <section class="row-md">
+            <table> 
+                <tr><th>Card Name</th>
+                    <th>Quantity</th>
+                    <th>Link</th>
+                    <th></th></tr>
+                <?php
+                edit_card_in_table();
 
-        function edit_card_in_table() {
+                function edit_card_in_table() {
 
-            global $success, $error_msg;
+                    global $success, $error_msg;
 
-            /* Create database connection */
-            $config = parse_ini_file("../../private/db-config.ini");
-            $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
+                    /* Create database connection */
+                    $config = parse_ini_file("../../private/db-config.ini");
+                    $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
 
-            /* Check connection */
-            if ($conn->connect_error) {
-                //$error_msg = "Connection failed: " . $conn->connect_error;
-                $error_msg = "Oops connection error!";
-                $success = false;
-            } else {
-                // Prepare the statement
-                $stmt = "SELECT * FROM cards_info";
-                $result = $conn->query($stmt);
-                if ($result->num_rows > 0) {
-                    echo "<table> <tr>"
-                        ."<th>Card Name</th>"
-                        ."<th>Quantity</th>"
-                        ."<th>Link</th>"
-                        ."<th></th></tr>";
+                    /* Check connection */
+                    if ($conn->connect_error) {
+                        //$error_msg = "Connection failed: " . $conn->connect_error;
+                        $error_msg = "Oops connection error!";
+                        $success = false;
+                    } else {
+                        // Prepare the statement
+                        $stmt = "SELECT * FROM cards_info";
+                        $result = $conn->query($stmt);
+                        if ($result->num_rows > 0) {
 
-                    while ($row = $result->fetch_assoc()) {
-                        echo 
-                        "<form action='process_edit_card.php' method='post'><tr>"
-                        ."<td><input type='hidden' class='form-control' id='card_name' name='card_name' value ='".$row["name"]."'>".$row["name"]."</td>"
-                        ."<td><input type='number' id='quantity' name='quantity' min='1' value = '".$row["quantity"]."'></td>" 
-                        ."<td><input type='text' class='form-control' id='link' name='link' placeholder='Image Link here' maxlength='255' value ='".$row["picture_link"]."'></td>"
-                        . "<td><button class='btn btn-outline-dark' type='submit'>Update</button></td>"
-                        ."</tr></form>";
+
+                            while ($row = $result->fetch_assoc()) {
+                                echo
+                                "<form action='process_edit_card.php' method='post'><tr>"
+                                . "<td><input type='hidden' class='form-control' id='card_name' name='card_name' value ='" . $row["name"] . "'>" . $row["name"] . "</td>"
+                                . "<td><input type='number' id='quantity' name='quantity' min='1' value = '" . $row["quantity"] . "'></td>"
+                                . "<td><input type='text' class='form-control' id='link' name='link' placeholder='Image Link here' maxlength='255' value ='" . $row["picture_link"] . "'></td>"
+                                . "<td><button class='btn btn-outline-dark' type='submit'>Update</button></td>"
+                                . "</tr></form>";
+                            }
+                        } else {
+                            //$error_msg = "Execute failed: (' . $stmt->errno . ')" . $stmt->error;
+                            $error_msg = "No results found";
+                            $success = false;
+                        }
+                        $stmt->close();
                     }
-                    echo "</table>";
-                } else {
-                    //$error_msg = "Execute failed: (' . $stmt->errno . ')" . $stmt->error;
-                    $error_msg = "No results found";
-                    $success = false;
+                    $conn->close();
                 }
-                $stmt->close();
-            }
-            $conn->close();
-        }
-        
-        if(!$success){
-            echo $error_msg;
-        }
-        ?>
 
+                if (!$success) {
+                    echo $error_msg;
+                }
+                ?>
+            </table>
+        </section>
     </body>
 </html>
 

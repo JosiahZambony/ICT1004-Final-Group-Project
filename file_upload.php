@@ -33,16 +33,7 @@
     </head>
     <body>
         <?php
-       
-         // check for admin login
-        session_start();
-        
-         if (($_SESSION['name']) != 'nq9dnwqnd9qi2n3ed03ed92n!@#!90e209#@40u0!') {
-             header("Location: https://34.145.96.82/ICT1004/card_list.php");
-            exit();
-        
-    }
-    include "admin_nav_bar.php";
+        include "nav_bar.php";
         ?>
 
         <section class="row white-bg-img">
@@ -53,9 +44,9 @@
                 <article class="container py-auto">
                     <h1>File Upload</h1>
                     <form method="POST" action="process_upload.php" enctype="multipart/form-data">
-                        <div>
-                            <span>Choose a file:</span>
-                            <input type="file" id="file-upload" name="uploadedFile">
+                        <div class="upload-wrapper">
+                            <span class="file-name">Choose a file:</span>
+                            <label for="file-upload">Browse<input type="file" id="file-upload" name="uploadedFile"></label>
                         </div>
 
                         <input type="submit" name="uploadBtn" value="Upload" />
