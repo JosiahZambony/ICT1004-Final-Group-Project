@@ -50,7 +50,7 @@
                 $allowedfileExtensions = array('jpg', 'png');
                 if (in_array($fileExtension, $allowedfileExtensions)) {
                     // directory in which the uploaded file will be moved
-                    $uploadFileDir = './images/';
+                    $uploadFileDir = './card/';
                     $dest_path = $uploadFileDir . $fileName;
                     move_uploaded_file($fileTmpPath, $dest_path);
                 }
