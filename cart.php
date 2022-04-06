@@ -63,7 +63,7 @@
         </section>
         <section class="row-md cart-title">
             <div class="container">
-                <h1>List for <b>[<?php echo $_SESSION["name"];?>]</b></h1>
+                <h1>List for <b><?php echo $_SESSION["name"];?></b></h1>
             </div>
         </section>
         <section class="row-md cart-table">
@@ -74,18 +74,22 @@
                           <th scope="col">#</th>
                           <th scope="col">Card Name</th>
                           <th scope="col">Qty</th>
+                          <th scope="col">Delete Item</th>
                         </tr>
                     </thead>
                     <tbody>
-        <?php
+          <?php
             while($row = mysqli_fetch_array($result)) {
         ?>
                         <tr>
+                            <form action='edit_cart_process.php' method='post'><tr>
                             <th scope="row"><?php echo $x;?></th>
                             <td><?php echo $row["card"];?></td>
                             <td><?php echo $row["quantity"];?></td>
-                        </tr>
-        <?php
+                            <td><button class='btn btn-outline-dark' name="deleteItem" value ="<?php echo $row["card"];?>" type='submit'>Delete</button>
+                                </tr></form>
+                         
+                        <?php
                 $x++;
             }
             $result -> free_result();
@@ -95,9 +99,7 @@
             </div>
         </section>
         <section class="row-md">
-            <div class="container">
-                <a href="process_purchase.php" class="btn btn-outline-dark mb-3" role="button">Purchase</a>
-            </div>
+            
         </section>
     </body>
 </html>
