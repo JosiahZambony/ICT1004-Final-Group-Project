@@ -141,9 +141,6 @@
             $key = array();
             $value = array();
             
-            if(isset($_POST['submit'])){ 
-                //code to be executed
-            }
             if(!empty($_POST["rarity"])) {
                 $key[] = "rarity";
                 $columns[] = '"'.$_POST["rarity"].'"';
@@ -205,7 +202,8 @@
         <?php
                 session_start();
                 if($_SESSION["name"]) {
-                    echo '<form action="" method="post">';
+                    echo '<form action="process_add_to_cart.php" method="post">';
+                    echo '<input type="hidden" id="card-name" name="card-name" value="'.$row["name"].'">';
                     echo '<select class="custom-select" id="choose-qty" name="choose-qty">';
                     for($y = 1; $y <= $row["quantity"]; $y++) {
                         echo "<option value=". $y .">". $y ."</option>";
