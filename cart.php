@@ -94,5 +94,10 @@
                 </table>
             </div>
         </section>
+        <section class="row-md">
+            <div class="container">
+                <a href="" class="btn btn-outline-dark mb-3" role="button">Purchase</a>
+            </div>
+        </section>
     </body>
 </html>
