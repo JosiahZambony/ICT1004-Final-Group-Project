@@ -119,38 +119,6 @@ img.pikachu-img {
     margin: 0px;
 }
 
-.endorsment-bg {
-    height: 500px;
-    width: 100%;
-    margin: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.endorsment-container {
-    height: 300px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.endorsement {
-    border-color: gold;
-    border-style: solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.endorsement-txt {
-    color: gold;
-}
-
 div.message-box {
     background-color: white;
     border-radius: 15px;

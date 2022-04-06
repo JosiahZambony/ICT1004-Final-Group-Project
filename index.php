@@ -48,16 +48,6 @@
                     </article>
             </div>
         </section>
-        <section class="row endorsment-bg">
-            <div class="endorsment-container">
-                <div class="container endorsement">
-                    <blockquote class="blockquote mb-0">
-                        <p class="mb-0 endorsement-txt">Quality Cards for a Quality Company</p>
-                        <footer class="blockquote-footer m-0 endorsement-txt"><cite title="Source Title">Scott Jones</cite></footer>
-                    </blockquote>
-                </div>
-            </div>
-        </section>
         <?php
             include "footer.php";
         ?>
