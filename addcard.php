@@ -141,11 +141,11 @@
                     </div>
                 </div>
                 <div class="form-row pb-3">
-                    <div class="col-md-1">
-                        <label class="col-form-label">Image Link:</label>
+                    <div class="col-md-11">
+                        <label class="col-form-label">Image Name: <br> *use the same file name and extension as uploaded file</label>
                     </div>
                     <div class="col-md-11">
-                        <input type="text" class="form-control" id="link" name="link" placeholder="Image Link here" maxlength="255">
+                        <input type="text" class="form-control" id="link" name="link" placeholder="Image Name here" maxlength="255">
                     </div>
                 </div>
                 <div class="form-row pb-3 pl-1">
