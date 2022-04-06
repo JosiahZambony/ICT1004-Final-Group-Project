@@ -246,3 +246,20 @@ div.message-box {
     margin-top: 10px;
     margin-bottom: 5px;
 }
+
+/* Design Cart Page */
+.cart-banner {
+    background-color: lightslategray;
+    color: white;
+    height: 125px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.cart-title {
+    height: 80px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}

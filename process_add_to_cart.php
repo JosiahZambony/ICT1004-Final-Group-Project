@@ -66,7 +66,7 @@
                 crossorigin="anonymous">
         </script>
         
-        <title>Register</title>
+        <title>Card List</title>
     </head>
     <body>
         <?php
