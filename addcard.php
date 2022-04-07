@@ -95,27 +95,27 @@
                         <label class="col-form-label">Elements:</label>
                     </div>
                     <div class="col-md-11">
-                        <input type="checkbox" id="elements" name="elements[]" value="normal">
+                        <input type="checkbox"  name="elements[]" value="normal">
                         <label> Normal</label><br>
-                        <input type="checkbox" id="elements" name="elements[]" value="fire">
+                        <input type="checkbox"  name="elements[]" value="fire">
                         <label> Fire</label><br>
-                        <input type="checkbox" id="elements" name="elements[]" value="water">
+                        <input type="checkbox"  name="elements[]" value="water">
                         <label> Water</label><br>
-                        <input type="checkbox" id="elements" name="elements[]" value="grass">
+                        <input type="checkbox"  name="elements[]" value="grass">
                         <label> Grass</label><br>
-                        <input type="checkbox" id="elements" name="elements[]" value="ground">
+                        <input type="checkbox"  name="elements[]" value="ground">
                         <label> Ground</label><br>
-                        <input type="checkbox" id="elements" name="elements[]" value="dark">
+                        <input type="checkbox" name="elements[]" value="dark">
                         <label> Dark</label><br>
-                        <input type="checkbox" id="elements" name="elements[]" value="psychic">
+                        <input type="checkbox"  name="elements[]" value="psychic">
                         <label> Psychic</label><br>
-                        <input type="checkbox" id="elements" name="elements[]" value="steel">
+                        <input type="checkbox"  name="elements[]" value="steel">
                         <label> Steel</label><br>
-                        <input type="checkbox" id="elements" name="elements[]" value="bug">
+                        <input type="checkbox"  name="elements[]" value="bug">
                         <label> Bug</label><br>
-                        <input type="checkbox" id="elements" name="elements[]" value="flying">
+                        <input type="checkbox" name="elements[]" value="flying">
                         <label> Flying</label><br>
-                        <input type="checkbox" id="elements" name="elements[]" value="electric">
+                        <input type="checkbox"  name="elements[]" value="electric">
                         <label> Electric</label><br>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                         <label class="col-form-label">Type of card:</label>
                     </div>
                     <div class="col-md-11">
-                        <select id="rarity" name="type">
+                        <select id="type" name="type">
                             <option value="basic">Basic Pokemon</option>
                             <option value="stage1">Stage 1 Pokemon</option>
                             <option value="stage2">Stage 2 Pokemon</option>

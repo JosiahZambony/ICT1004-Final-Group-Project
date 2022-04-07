@@ -3,7 +3,7 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=yes">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="author" content="De Jun">
         <meta name="author" content="Kar Hoe">
@@ -74,9 +74,9 @@
                                 while ($row = $result->fetch_assoc()) {
                                     echo
                                     "<form action='process_edit_card.php' method='post'><tr>"
-                                    . "<td><input type='hidden' class='form-control' id='card_name' name='card_name' value ='" . $row["name"] . "'>" . $row["name"] . "</td>"
-                                    . "<td><input type='number' id='quantity' name='quantity' min='1' value = '" . $row["quantity"] . "'></td>"
-                                    . "<td><input type='text' class='form-control' id='link' name='link' placeholder='Image Link here' maxlength='255' value ='" . $row["picture_link"] . "'></td>"
+                                    . "<td><input type='hidden' class='form-control' name='card_name' value ='" . $row["name"] . "'>" . $row["name"] . "</td>"
+                                    . "<td><input type='number' name='quantity' min='1' value = '" . $row["quantity"] . "'></td>"
+                                    . "<td><input type='text' class='form-control' name='link' placeholder='Image Link here' maxlength='255' value ='" . $row["picture_link"] . "'></td>"
                                     . "<td><button class='btn btn-outline-dark' type='submit'>Update</button></td>"
                                     . "</tr></form>";
                                 }
