@@ -3,7 +3,7 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=yes">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="author" content="De Jun">
         <meta name="author" content="Kar Hoe">
@@ -110,7 +110,7 @@
 
                 if($success) {
                     echo "<form class='container p-3' action='login.php'>"
-                       . "<h1 class='display-4'>Your registration is sucessful</h1>"
+                       . "<h1 class='display-4'>Your registration is successful!</h1>"
                        . "<p class='lead'>Thank you for signing up, " . $username . "</p>"
                        . "<button class='btn btn-outline-dark' type='submit'>Log-In</button>"
                        . "</form>";
@@ -120,7 +120,7 @@
                        . "<h1 class='display-4'>Oops!</h1>"
                        . "<p class='lead'>The following input errors were detected:</p>"
                        . "<ul class='list-group list-group-flush pb-5'>"
-                       . $error_msg 
+                       . "<li>" . $error_msg . "</li>" 
                        . "</ul>"
                        . "<button class='btn btn-outline-dark' type='submit'>Return to Register</button>"
                        . "</form>";
