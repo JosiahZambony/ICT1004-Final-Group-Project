@@ -9,13 +9,13 @@
         <meta name="author" content="Kar Hoe">
         <meta name="author" content="Tham Josiah">
         <meta name="author" content="Xiang Xi">
-        
+
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet"
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
               integrity=
-                "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
               crossorigin="anonymous">
         <link rel="stylesheet" href="css/main.css">
         <script defer
@@ -29,32 +29,32 @@
                 crossorigin="anonymous">
         </script>
         <script src="https://kit.fontawesome.com/20af070e50.js" crossorigin="anonymous"></script>
-        
+
         <title>Cart</title>
     </head>
     <body>
         <?php
-            include "nav_bar.php";
+        include "nav_bar.php";
         ?>
         <?php
-            session_start();
+        session_start();
 
-            /* Create database connection */
-            $config = parse_ini_file("../../private/db-config.ini");
-            $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
-            
-            /* Check connection */
-            if($conn->connect_error) {
-                $error_msg .= "Connection issue is found";
-                $success = false;
-            }
-            
-            $query = "SELECT * FROM cart_info WHERE buyer = '".$_SESSION["name"]."';";
-            
-            $result = mysqli_query($conn, $query);
-            $conn->close();
+        /* Create database connection */
+        $config = parse_ini_file("../../private/db-config.ini");
+        $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
 
-            $x = 1;
+        /* Check connection */
+        if ($conn->connect_error) {
+            $error_msg .= "Connection issue is found";
+            $success = false;
+        }
+
+        $query = "SELECT * FROM cart_info WHERE buyer = '" . $_SESSION["name"] . "';";
+
+        $result = mysqli_query($conn, $query);
+        $conn->close();
+
+        $x = 1;
         ?>
         <section class="row-md cart-banner">
             <div class="container">
@@ -63,48 +63,55 @@
         </section>
         <section class="row-md cart-title">
             <div class="container">
-                <h1>List for <b><?php echo $_SESSION["name"];?></b></h1>
+                <h1>List for <b><?php echo $_SESSION["name"]; ?></b></h1>
             </div>
         </section>
         <section class="row-md cart-table">
             <div class="container">
-                <table class="table table-md">
-                    <thead>
-                        <tr class="d-flex">
-                          <th class="col-sm-1">#</th>
-                          <th class="col-sm-5">Card Name</th>
-                          <th class="col-sm-4">Qty</th>
-                          <th class="col-sm-2">Delete Item</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-          <?php
-            while($row = mysqli_fetch_array($result)) {
-        ?>
-                        <tr class="d-flex">
+                <form method ="post">
+                    <table class="table table-md">
+                        <thead>
+                            <tr class="d-flex">
+                                <th class="col-sm-1">#</th>
+                                <th class="col-sm-5">Card Name</th>
+                                <th class="col-sm-4">Qty</th>
+                                <th class="col-sm-2">Delete Item</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            while ($row = mysqli_fetch_array($result)) {
+                                ?>
+                                <tr class="d-flex">
                             <form action='edit_cart_process.php' method='post'>
-                                <th class="col-sm-1"><?php echo $x;?></th>
-                                <td class="col-sm-5"><?php echo $row["card"];?></td>
-                                <td class="col-sm-4"><?php echo $row["quantity"];?></td>
+                                <th class="col-sm-1"><?php echo $x; ?></th>
+                                <td class="col-sm-5"><?php echo $row["card"]; ?>
+                                    <input type="hidden" class="form-control" id="card_name" name="card_name" value = <?php echo $row["card"]; ?> ></td>
+                                <td class="col-sm-4"><?php echo $row["quantity"]; ?>
+                                    <input type="hidden" class="form-control" id='quantity' name='quantity' value = <?php echo $row["quantity"]; ?> ></td>
                                 <td class="col-sm-2">
                                     <div class="container p-0 text-center">
-                                        <button class='btn btn-outline-dark pb-0 pt-0' name="deleteItem" value ="<?php echo $row["card"];?>" type='submit'>Delete</button>
+                                        <button class='btn btn-outline-dark pb-0 pt-0' name="deleteItem" value ="<?php echo $row["card"]; ?>" type='submit'>Delete</button>
                                     </div>
                                 </td>
                             </form>
-                        </tr>
-                         
-                        <?php
-                $x++;
-            }
-            $result -> free_result();
-        ?>
-                    </tbody>
-                </table>
+                            </tr>
+
+                            <?php
+                            $x++;
+                        }
+                        $result->free_result();
+                        ?>
+                        </tbody>
+                    </table>
+                    <div class='form-row pb-3 pl-1'>
+                        <button class='btn btn-outline-dark' type='submit'>Check Out</button>
+                    </div>
+                </form>
             </div>
         </section>
         <section class="row-md">
-            
+
         </section>
     </body>
 </html>
