@@ -190,6 +190,9 @@
                 if(($x != 0) && ($x%3 == 0)) {
                     echo '</div><div class="row">';
                 }
+                if($row["quantity"] == 0) {
+                    continue;
+                }
         ?>
             <div class="card col-md-4 p-0">
                 <img class ="card-image" src="../ICT1004<?php echo $row["picture_link"];?>" alt="">

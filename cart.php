@@ -70,23 +70,23 @@
             <div class="container">
                 <table class="table table-md">
                     <thead>
-                        <tr class="d-flex">
-                          <th class="col-sm-1">#</th>
-                          <th class="col-sm-5">Card Name</th>
-                          <th class="col-sm-4">Qty</th>
-                          <th class="col-sm-2">Delete Item</th>
+                        <tr>
+                          <th class="col-md-2">#</th>
+                          <th class="col-md-4">Name</th>
+                          <th class="col-md-4">Qty</th>
+                          <th class="col-md-2">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
           <?php
             while($row = mysqli_fetch_array($result)) {
         ?>
-                        <tr class="d-flex">
+                        <tr>
                             <form action='edit_cart_process.php' method='post'>
-                                <th class="col-sm-1"><?php echo $x;?></th>
-                                <td class="col-sm-5"><?php echo $row["card"];?></td>
-                                <td class="col-sm-4"><?php echo $row["quantity"];?></td>
-                                <td class="col-sm-2">
+                                <th class="col-md-2"><?php echo $x;?></th>
+                                <td class="col-md-4"><?php echo $row["card"];?></td>
+                                <td class="col-md-4"><?php echo $row["quantity"];?></td>
+                                <td class="col-md-2">
                                     <div class="container p-0 text-center">
                                         <button class='btn btn-outline-dark pb-0 pt-0' name="deleteItem" value ="<?php echo $row["card"];?>" type='submit'>Delete</button>
                                     </div>
@@ -104,7 +104,9 @@
             </div>
         </section>
         <section class="row-md">
-            
+            <div class="container">
+                <a href="process_purchase.php" class="btn btn-outline-dark mb-3" role="button">Purchase</a>
+            </div>
         </section>
     </body>
 </html>

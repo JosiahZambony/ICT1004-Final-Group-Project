@@ -17,7 +17,24 @@
         $result = mysqli_query($conn, 'SELECT EXISTS(SELECT * FROM cart_info WHERE card="'.$_POST["card-name"].'" AND buyer = "'.$_SESSION["name"].'") AS exist;');
         $row = mysqli_fetch_array($result);
         if($row[exist]) {
-            mysqli_query($conn, "UPDATE cart_info SET quantity = quantity + ".$_POST["choose-qty"]." WHERE buyer = '".$_SESSION["name"]."' AND card = '".$_POST["card-name"]."'");    
+            /* Check if the quantity exceeds the limit */
+            /* Retrieve the card chosen records for member from cart list */
+            $query_1 = "SELECT quantity FROM cart_info WHERE buyer = '".$_SESSION["name"]."' AND card = '".$_POST["card-name"]."';";
+            $result_1 = mysqli_query($conn, $query_1);
+            $row_1 = mysqli_fetch_array($result_1); 
+            $projected_total = (int)$row_1["quantity"] + (int)$_POST["choose-qty"];
+            /* Retrieve the quantity of card chosen records from card list */
+            $query_2 = "SELECT quantity FROM cards_info WHERE name = '".$_POST["card-name"]."';";
+            $result_2 = mysqli_query($conn, $query_2);
+            $row_2 = mysqli_fetch_array($result_2);
+            /* If projected total does not exceed limit of stock then update */
+            if((int)$row_2["quantity"] >= $projected_total) {
+                mysqli_query($conn, "UPDATE cart_info SET quantity = quantity + ".$_POST["choose-qty"]." WHERE buyer = '".$_SESSION["name"]."' AND card = '".$_POST["card-name"]."'");    
+            }
+            else {
+                $error_msg = "<li class='list-group-item'>Cannot add anymore cards due to stock limit</li>";
+                $success = false;
+            }
         }
         else {
             // Prepare the statement
