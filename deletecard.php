@@ -3,7 +3,7 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=yes">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="author" content="De Jun">
         <meta name="author" content="Kar Hoe">
@@ -42,66 +42,58 @@
             </div>
         </section>
         <section class="row-md">
-            <div class="container p-3">
-                <form action='process_delete_card.php' method='post'>
-                    <div class='row-md'>
-                        <label class='col-form-label'>Select which card to delete:</label>
-                    </div>
-                    <div class='form-row pb-3 pl-1'>
-                        <button class='btn btn-outline-dark' type='submit'>Delete</button>
-                    </div>
-                    <div class='row-md'>
-                        <select id='card_name' name='card_name'>
-                            <?php
-                                select_card_in_table();
+            <form class="container p-3" action="process_delete_card.php" method="post">
+                <div class="col-md-11">
+                    <label class="col-form-label">Select which card to delete:</label>
+                </div>
+                <div class="col-md-11">
+                    <select id="card_name" name="card_name">
+                        <?php
+                        select_card_in_table();
 
-                                function select_card_in_table() {
+                        function select_card_in_table() {
 
-                                    global $success, $error_msg;
+                            global $success, $error_msg;
 
-                                    /* Create database connection */
-                                    $config = parse_ini_file("../../private/db-config.ini");
-                                    $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
+                            /* Create database connection */
+                            $config = parse_ini_file("../../private/db-config.ini");
+                            $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
 
-                                    /* Check connection */
-                                    if ($conn->connect_error) {
-                                        //$error_msg = "Connection failed: " . $conn->connect_error;
-                                        $error_msg = "Oops connection error!";
-                                        $success = false;
-                                    } else {
-                                        // Prepare the statement
-                                        $stmt = "SELECT * FROM cards_info";
-                                        $result = $conn->query($stmt);
-                                        if ($result->num_rows > 0) {
+                            /* Check connection */
+                            if ($conn->connect_error) {
+                                //$error_msg = "Connection failed: " . $conn->connect_error;
+                                $error_msg = "Oops connection error!";
+                                $success = false;
+                            } else {
+                                // Prepare the statement
+                                $stmt = "SELECT * FROM cards_info";
+                                $result = $conn->query($stmt);
+                                if ($result->num_rows > 0) {
 
-                                            while ($row = $result->fetch_assoc()) {
-                                                echo
-                                                "<option value='" . $row["name"] . "'>" . $row["name"] . "</option>";
-                                            }
-                                        } else {
-                                            //$error_msg = "Execute failed: (' . $stmt->errno . ')" . $stmt->error;
-                                            $error_msg = "No results found";
-                                            $success = false;
-                                        }
-                                        $stmt->close();
+                                    while($row = $result->fetch_assoc()){
+                                        echo
+                                        "<option value='" . $row["name"] . "'>" . $row["name"] . "</option>";
                                     }
-                                    $conn->close();
+                                    
+                                } else {
+                                    //$error_msg = "Execute failed: (' . $stmt->errno . ')" . $stmt->error;
+                                    $error_msg = "No results found";
+                                    $success = false;
                                 }
+                                //$stmt->close();
+                            }
+                            $conn->close();
+                        }
+                        ?>
+                    </select>
 
-                                if (!$success) {
-                                    echo $error_msg;
-                                }
-                            ?>
-                        </select>
-                    </div>
-                    <div class='form-row pb-3 pl-1'>
-                        <button class='btn btn-outline-dark' type='submit'>Delete</button>
-                    </div>
-                </form>
-            </div>
-        </form>
-    </section>
-</body>
+                </div>
+                <div class="col-md-11">
+                    <button class="btn btn-outline-dark" type="submit">Delete</button>
+                </div>
+
+            </form>
+        </section>
+    </body>
 </html>
-
 

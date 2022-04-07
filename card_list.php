@@ -4,7 +4,7 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=yes">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="author" content="De Jun">
         <meta name="author" content="Kar Hoe">
@@ -205,6 +205,7 @@
                     <p class="card-qty">Quantity: <?php echo $row["quantity"]?></p>
         <?php
                 session_start();
+                
                 if($_SESSION["name"]) {
                     echo '<form action="process_add_to_cart.php" method="post">';
                     echo '<input type="hidden" id="card-name" name="card-name" value="'.$row["name"].'">';
@@ -217,7 +218,7 @@
                     echo '<button class="btn btn-outline-dark" type="submit">Add To Cart</button>';
                     echo '</div>';
                 }
-                echo '</form>';
+              
         ?>
                 </div>
             </div>
