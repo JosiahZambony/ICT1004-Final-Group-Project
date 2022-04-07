@@ -68,26 +68,31 @@
         </section>
         <section class="row-md cart-table">
             <div class="container">
-                <table class="table table-sm">
+                <table class="table table-md">
                     <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Card Name</th>
-                          <th scope="col">Qty</th>
-                          <th scope="col">Delete Item</th>
+                        <tr class="d-flex">
+                          <th class="col-sm-1">#</th>
+                          <th class="col-sm-5">Card Name</th>
+                          <th class="col-sm-4">Qty</th>
+                          <th class="col-sm-2">Delete Item</th>
                         </tr>
                     </thead>
                     <tbody>
           <?php
             while($row = mysqli_fetch_array($result)) {
         ?>
-                        <tr>
-                            <form action='edit_cart_process.php' method='post'><tr>
-                            <th scope="row"><?php echo $x;?></th>
-                            <td><?php echo $row["card"];?></td>
-                            <td><?php echo $row["quantity"];?></td>
-                            <td><button class='btn btn-outline-dark' name="deleteItem" value ="<?php echo $row["card"];?>" type='submit'>Delete</button>
-                                </tr></form>
+                        <tr class="d-flex">
+                            <form action='edit_cart_process.php' method='post'>
+                                <th class="col-sm-1"><?php echo $x;?></th>
+                                <td class="col-sm-5"><?php echo $row["card"];?></td>
+                                <td class="col-sm-4"><?php echo $row["quantity"];?></td>
+                                <td class="col-sm-2">
+                                    <div class="container p-0 text-center">
+                                        <button class='btn btn-outline-dark pb-0 pt-0' name="deleteItem" value ="<?php echo $row["card"];?>" type='submit'>Delete</button>
+                                    </div>
+                                </td>
+                            </form>
+                        </tr>
                          
                         <?php
                 $x++;

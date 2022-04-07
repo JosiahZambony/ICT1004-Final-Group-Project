@@ -374,6 +374,12 @@ span.file-name {
   border-right: 0;
 }
 
-table, th, td{
+table{
+    border: 1px solid;
+}
+
+th, td{
+    text-align: left;
+    vertical-align: middle;
     border: 1px solid;
 }
