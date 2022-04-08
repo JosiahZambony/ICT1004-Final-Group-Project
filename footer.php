@@ -24,17 +24,17 @@
                 <li class="footer-li container list-group-item">
                     <div class="row">
                         <div class="col footer-icon">
-                        <a href="https://www.youtube.com" class="youtube-link">
+                        <a href="https://www.youtube.com" class="youtube-link" title="link to youtube">
                             <i class="fa-2x fa-brands fa-youtube"></i>
                         </a>
                         </div>
                         <div class="col footer-icon">
-                            <a href="https://www.facebook.com" class="facebook-link">
+                            <a href="https://www.facebook.com" class="facebook-link" title="link to facebook">
                                 <i class="fa-2x fa-brands fa-facebook-square"></i>
                             </a>
                         </div>
                         <div class="col footer-icon">
-                            <a href="https://www.reddit.com" class="reddit-link">
+                            <a href="https://www.reddit.com" class="reddit-link" title="link to reddit">
                                 <i class="fa-2x fa-brands fa-reddit-square"></i>
                             </a>
                         </div>

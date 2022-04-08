@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<main>
 <html lang="en">
 
     <head>
@@ -38,13 +39,13 @@
         <?php
         include "nav_bar.php";
         ?>
-        <section class="row-md available-cards-banner">
-            <div class="container">
+        <section class="row-md available-cards-banner" <div role="banner">
+            <div class="container" >
                 <h1>Available Cards</h1>
             </div>
         </section>
         
-        <nav class="navbar navbar-light">
+        <nav class="navbar navbar-light" aria-label="navbar-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#filterToggler" 
                 aria-controls="filterToggler" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -234,3 +235,4 @@
         ?>
     </body>
 </html>
+</main>

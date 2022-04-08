@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+<main>
 <html lang="en">
+    
     <head>
         <!-- Required meta tags -->
         <meta charset="UTF-8">
@@ -53,3 +55,4 @@
         ?>
     </body>
 </html>
+</main>
