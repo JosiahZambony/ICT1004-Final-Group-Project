@@ -66,7 +66,7 @@
                         <a href = "addcard.php">Add new card</a>
                     </div>
                     <div class="col-form-label">
-                        <a href = "editcard.php">Edit quantity of cards</a>
+                        <a href = "editcard.php">Edit cards</a>
                     </div>
                     <div class="col-form-label">
                         <a href = "deletecard.php">Delete card</a>
