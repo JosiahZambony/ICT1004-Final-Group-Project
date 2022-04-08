@@ -219,6 +219,7 @@
                     echo '<button class="btn btn-outline-dark" type="submit">Add To Cart</button>';
                     echo '</div>';
                 }
+                   echo '</form>';
               
         ?>
                 </div>
